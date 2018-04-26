@@ -1,49 +1,98 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+    <title>RxJs / Observables</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section><h1>RxJs / Observables</h1></section>
+        <section>
+            <h5>Kontext</h5>
+            <div style="display: flex; height: 100%; justify-content: space-between;">
+                <div style="display: flex; flex-direction: column; justify-content: space-between; margin-right: 1rem;">
+                    <div>
+                        <p>Objekt</p>
+                        <div style="display: flex; align-items: center;">
+                            <em style="margin-right: 1rem; font-size: medium;">(Singleton)</em>
+                            <pre style="width: 100%;" class="js"><code data-trim>
+                                const car = {
+                                    brand: 'BMW',
+                                    color: 'white'
+                                };
+                            </code></pre>
+                        </div>
+                    </div>
+                    <div class="fragment" data-fragment-index="1">
+                        <p>Array</p>
+                        <div style="display: flex; align-items: center;">
+                            <em style="margin-right: 1rem; font-size: medium;">(Kollektion)</em>
+                            <pre style="width: 100%;" class="js"><code data-trim>
+                                const vehicles = [bmw, audi, ford];
+                                </code></pre>
+                        </div>
+                    </div>
+                    <p class="fragment" data-fragment-index="2"><em style="font-size: medium;">(Synchron)</em></p>
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div class="fragment" data-fragment-index="3">
+                        <p>Promise</p>
+                        <pre style="width: 100%;" class="js"><code data-trim>
+                            fetch('http://carservice.com/123')
+                                .then(car => console.log(car.brand));
+                        </code></pre>
+                    </div>
+                    <div class="fragment" data-fragment-index="4">
+                        <p>Observable</p>
+                        <pre style="width: 100%;" class="js"><code data-trim>
+                            carStream$
+                                .subscribe( car => console.log(car.brand));
+                        </code></pre>
+                    </div>
+                    <p class="fragment" data-fragment-index="3"><em style="font-size: medium;">(Asynchron)</em></p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
 </html>
