@@ -71,6 +71,27 @@
                 </div>
             </div>
         </section>
+        <section>
+            <h5>Observables erstellen</h5>
+            <pre style="width: 100%;" class="js"><code style="max-height: none;" data-trim>
+                // Statischer Wert
+                Observable.of('Single value');
+
+                // Mehrere statische Werte
+                Observable.from([1, 3, 5, 7, 9]);
+
+                // Jede Sekunde eine aufsteigende Zahl
+                Observable.interval(1000);
+
+                // Von Promise
+                Observable.fromPromise(fetch('http://api/resource/1'));
+
+                // Von DOM-Ereignisse
+                Observable.fromEvent(body, 'mouseMove');
+
+                // Von WebSockets, von Angular HTTP Client, selbst gebaut, etc...
+            </code></pre>
+        </section>
     </div>
 </div>
 
@@ -91,7 +112,8 @@
                     hljs.initHighlightingOnLoad();
                 }
             }
-        ]
+        ],
+        // height: 1200,
     });
 </script>
 </body>
