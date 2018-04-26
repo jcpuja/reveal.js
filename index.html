@@ -26,7 +26,7 @@
     <div class="slides">
         <section><h1>RxJs / Observables</h1></section>
         <section>
-            <h5>Kontext</h5>
+            <h3>Kontext</h3>
             <div style="display: flex; height: 100%; justify-content: space-between;">
                 <div style="display: flex; flex-direction: column; justify-content: space-between; margin-right: 1rem;">
                     <div>
@@ -72,7 +72,7 @@
             </div>
         </section>
         <section>
-            <h5>Observables erstellen</h5>
+            <h3>Observables erstellen</h3>
             <pre style="width: 100%;" class="js"><code style="max-height: none;" data-trim>
                 // Statischer Wert
                 Observable.of('Single value');
@@ -91,6 +91,31 @@
 
                 // Von WebSockets, von Angular HTTP Client, selbst gebaut, etc...
             </code></pre>
+        </section>
+        <section>
+            <section>
+                <h3>Subscribe</h3>
+                <pre style="width: 100%;" class="js"><code style="max-height: none;" data-trim>
+                    httpClient
+                        .get('http://api/resource/1')
+                        .subscribe(
+                            result => displayResult(result)
+                        );
+                </code></pre>
+            </section>
+            <section>
+                <h3>Subscribe</h3>
+                <p>Mit error und complete</p>
+                <pre style="width: 100%;" class="js"><code style="max-height: none;" data-trim>
+                    httpClient
+                        .get('http://api/resource/1')
+                        .subscribe(
+                            result => displayResult(result),
+                            err => console.error(err),
+                            () => notifyDone()
+                        );
+                </code></pre>
+            </section>
         </section>
     </div>
 </div>
@@ -113,7 +138,7 @@
                 }
             }
         ],
-        // height: 1200,
+        height: 900
     });
 </script>
 </body>
